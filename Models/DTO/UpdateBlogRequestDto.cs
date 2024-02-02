@@ -1,6 +1,6 @@
 ﻿namespace TheDevBlogsAPI.Models.DTO
 {
-    public class CreateNewBlogRequestDto
+    public class UpdateBlogRequestDto
     {
         public string Title { get; set; }
         public string Content { get; set; }
