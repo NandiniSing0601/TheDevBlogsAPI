@@ -14,6 +14,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<TheDevBlogsDBcontext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("TheDevBlogsConnectionString")));
 
+builder.Services.AddCors(options =>options.AddPolicy("default",policy =>
+{
+    policy.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
+}));
 
 //Build the application
 var app = builder.Build();
@@ -26,6 +30,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("default");
 
 app.UseAuthorization();
 

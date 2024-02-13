@@ -89,9 +89,9 @@ namespace TheDevBlogsAPI.Controllers
                 exixtingPost.PublishedDate = updateBlog.PublishedDate;
                 exixtingPost.UpdatedDate = updateBlog.UpdatedDate;
                 _context.SaveChanges();
-                return Ok("Successfully Updated");
+                return Ok(exixtingPost);
             }
-            return BadRequest();
+            return NotFound();
 
         }
         [HttpDelete]
